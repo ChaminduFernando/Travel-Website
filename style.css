@@ -89,6 +89,17 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
+/* Container Utility */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -1162,14 +1173,34 @@ a {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero {
+    height: auto;
+    min-height: unset;
+    padding: 4rem 1rem 3rem;
+  }
+  
+  .hero-tag {
+    font-size: 0.75rem;
+    padding: 0.35rem 1rem;
+    margin-bottom: 1.25rem;
+  }
+
   .hero-meta-row {
     flex-direction: column;
     gap: 0.75rem;
+    margin-bottom: 2rem;
   }
   
   .stats-inner {
-    flex-direction: column;
-    gap: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 0.75rem;
+    padding: 1.5rem 0.5rem;
   }
   
   .stat-divider {
@@ -1177,11 +1208,19 @@ a {
   }
   
   .stat-item {
-    min-width: 100%;
+    min-width: unset;
+  }
+  
+  .stat-label {
+    font-size: 0.72rem;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: 0.35rem;
   }
   
   .day-card-header {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
     gap: 1rem;
   }
   
@@ -1191,12 +1230,36 @@ a {
   }
   
   .nav-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    padding: 0.5rem 1rem;
   }
   
   .nav-logo {
+    order: 1;
     font-size: 1.15rem;
+  }
+
+  .nav-actions {
+    order: 2;
+  }
+  
+  .nav-scroll-wrapper {
+    order: 3;
+    max-width: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0.35rem 0 0.15rem;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .nav-links {
+    gap: 0.15rem;
+  }
+  
+  .nav-link {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
   }
   
   .booking-btn {
@@ -1218,6 +1281,26 @@ a {
     grid-template-columns: 1fr;
   }
   
+  .lightbox-container {
+    width: 95%;
+  }
+
+  .lightbox-img-wrapper, .lightbox-container img {
+    max-height: 280px;
+  }
+
+  .lightbox-caption {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .lightbox-caption h4 {
+    font-size: 1.15rem;
+  }
+
+  .lightbox-desc {
+    font-size: 0.82rem;
+  }
+
   .lightbox-nav {
     width: 44px;
     height: 44px;
@@ -1234,22 +1317,59 @@ a {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .hero {
+    padding: 3rem 0.5rem 2rem;
+  }
+  
   .hero-content {
-    padding: 1.25rem;
+    padding: 1rem;
   }
   
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .hero-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-tag {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-meta-row {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-badge-item {
+    font-size: 0.8rem;
+    padding: 0.45rem 1rem;
   }
   
   .cta-button {
-    padding: 0.9rem 1.75rem;
-    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .day-card {
+    padding: 1.25rem;
+  }
+
+  .day-route-title {
+    font-size: 1.25rem;
+  }
+
+  .map-wrapper-leaflet {
+    height: 280px;
   }
   
   .toolbar-card {
