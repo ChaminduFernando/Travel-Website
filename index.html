@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Lanka Tour | Jul 15–22, 2026</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">✦ Luxury Private Guided Expedition ✦</div>
+      <h1>Resplendent<br><span>Sri Lanka</span></h1>
+      <p class="hero-subtitle">An immersive 8-day odyssey through emerald highlands, ancient rock citadels, rich wildlife sanctuaries, and golden coastal shores.</p>
+      
+      <div class="hero-meta-row">
+        <div class="hero-badge-item">
+          <i class="fa-regular fa-calendar-days"></i>
+          <span>July 15 – 22, 2026</span>
+        </div>
+        <div class="hero-badge-item">
+          <i class="fa-solid fa-person-hiking"></i>
+          <span>Curated Active Itinerary</span>
+        </div>
+      </div>
+      
+      <a href="#itinerary" class="cta-button">Explore Itinerary <i class="fa-solid fa-arrow-down-long"></i></a>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll to Discover</span>
+      <div class="arrow-dot"></div>
+    </div>
+  </section>
+
+  <!-- Quick Stats Bar -->
+  <div class="stats-bar">
+    <div class="container stats-inner">
+      <div class="stat-item">
+        <div class="stat-num" data-val="8">8</div>
+        <div class="stat-label"><i class="fa-regular fa-sun"></i> Days of Adventure</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num" data-val="7">7</div>
+        <div class="stat-label"><i class="fa-solid fa-map-location-dot"></i> Key Regions</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num" data-val="30">30+</div>
+        <div class="stat-label"><i class="fa-solid fa-camera"></i> Attractions</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="premium-badge">VIP</span></div>
+        <div class="stat-label"><i class="fa-solid fa-route"></i> Private Chauffeur & Guide</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Navigation (Sticky) -->
+  <nav class="sticky-nav" id="main-nav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="gold-text">Chamila</span> Tours
+      </a>
+      
+      <!-- Day Navigation Links -->
+      <div class="nav-scroll-wrapper">
+        <div class="nav-links">
+          <a href="#day1" class="nav-link active" data-day="1">Day 1: Ella</a>
+          <a href="#day2" class="nav-link" data-day="2">Day 2: Ginigathhena</a>
+          <a href="#day3" class="nav-link" data-day="3">Day 3: Nuwara Eliya</a>
+          <a href="#day4" class="nav-link" data-day="4">Day 4: Habarana</a>
+          <a href="#day5" class="nav-link" data-day="5">Day 5: Sigiriya</a>
+          <a href="#day6" class="nav-link" data-day="6">Day 6: Lake Safari</a>
+          <a href="#day7" class="nav-link" data-day="7">Day 7: Negombo</a>
+          <a href="#day8" class="nav-link" data-day="8">Day 8: Departure</a>
+        </div>
+      </div>
+      
+      <!-- Actions -->
+      <div class="nav-actions">
+        <button id="theme-toggle" aria-label="Toggle dark mode" class="nav-action-btn">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="tel:+94779071867" class="booking-btn"><i class="fa-solid fa-phone"></i> Call 077 907 1867</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Interactive Explorer Section -->
+  <section class="explorer-section container" id="itinerary">
+    
+    <!-- Filter & Search Toolbar -->
+    <div class="toolbar-card">
+      <div class="toolbar-header">
+        <h3><i class="fa-solid fa-sliders"></i> Filter Attractions</h3>
+        <p>Select a category or search below to filter the highlights throughout the itinerary.</p>
+      </div>
+      
+      <div class="toolbar-actions">
+        <!-- Search bar -->
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="attraction-search" placeholder="Search sights (e.g. Sigiriya, Waterfall)...">
+          <button id="clear-search" class="clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <!-- Filter Pills -->
+        <div class="filter-pills">
+          <button class="pill active" data-filter="all">All Sights</button>
+          <button class="pill" data-filter="Nature"><i class="fa-solid fa-leaf"></i> Nature</button>
+          <button class="pill" data-filter="Wildlife"><i class="fa-solid fa-paw"></i> Wildlife</button>
+          <button class="pill" data-filter="Waterfall"><i class="fa-solid fa-droplet"></i> Waterfalls</button>
+          <button class="pill" data-filter="UNESCO Heritage"><i class="fa-solid fa-monument"></i> UNESCO</button>
+          <button class="pill" data-filter="Hiking"><i class="fa-solid fa-person-hiking"></i> Hiking</button>
+          <button class="pill" data-filter="Heritage"><i class="fa-solid fa-landmark"></i> Heritage</button>
+          <button class="pill" data-filter="Experience"><i class="fa-solid fa-compass"></i> Experience</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map and Timeline Grid Container -->
+    <div class="explorer-layout">
+      
+      <!-- Left Side: Interactive Map (Desktop Sticky, Mobile top inline) -->
+      <aside class="map-sidebar">
+        <div class="map-sticky-container">
+          <div class="map-card-header">
+            <h4><i class="fa-solid fa-route"></i> Real Route Map</h4>
+            <span id="active-day-label">Day 1 Highlighted</span>
+          </div>
+          
+          <!-- Leaflet Map Container -->
+          <div class="map-wrapper-leaflet">
+            <div id="map"></div>
+          </div>
+          
+          <div class="map-footer">
+            <div class="legend-item"><span class="legend-color completed"></span> Visited Region</div>
+            <div class="legend-item"><span class="legend-color active"></span> Today's Stop</div>
+          </div>
+        </div>
+      </aside>
+      
+      <!-- Right Side: The 8-Day Scroll Timeline -->
+      <div class="timeline-container">
+        
+        <!-- DAY 1 -->
+        <section class="day-card" id="day1" data-day="1">
+          <div class="day-card-header">
+            <div class="day-number-badge">
+              <span class="num">01</span>
+              <span class="lbl">DAY</span>
+            </div>
+            <div class="day-header-meta">
+              <div class="day-date-tag"><i class="fa-regular fa-calendar-days"></i> Wednesday, July 15, 2026</div>
+              <h2 class="day-route-title">Aluthgama <i class="fa-solid fa-arrow-right-long"></i> Yala <i class="fa-solid fa-arrow-right-long"></i> Ella</h2>
+            </div>
+          </div>
+          
+          <p class="day-summary">Begin your Sri Lanka adventure heading south through wildlife country. Stop at sacred Tissa Lake, the dramatic Rawana Falls, and end the evening in the cool highland village of Ella.</p>
+          
+          <!-- Stop Cards Grid -->
+          <div class="stops-wrapper">
+            
+            <div class="attraction-card" data-tags="Nature" data-images="Images/Tissa Lake/1.jpg,Images/Tissa Lake/2.JPG,Images/Tissa Lake/3.webp">
+              <div class="card-img-wrapper">
+                <img src="Images/Tissa Lake/1.jpg" alt="Tissa Lake" loading="lazy">
+                <span class="card-badge">Nature</span>
+              </div>
+              <div class="card-body">
+                <h4>Tissa Lake</h4>
+                <p>A serene ancient reservoir teeming with birds and elephants bathing at dawn — a perfect first stop.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Experience" data-images="Images/Wellawaya/1.jpg,Images/Wellawaya/2.jpg,Images/Wellawaya/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Wellawaya/1.jpg" alt="Wellawaya" loading="lazy">
+                <span class="card-badge">Scenic Drive</span>
+              </div>
+              <div class="card-body">
+                <h4>Wellawaya</h4>
+                <p>A charming junction town at the foot of the mountains — a scenic crossroads between the south and highlands.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Waterfall Nature" data-images="Images/Rawana Ella Falls/1.jpg,Images/Rawana Ella Falls/2.webp,Images/Rawana Ella Falls/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Rawana Ella Falls/1.jpg" alt="Rawana Ella Falls" loading="lazy">
+                <span class="card-badge">Waterfall</span>
+              </div>
+              <div class="card-body">
+                <h4>Rawana Ella Falls</h4>
+                <p>One of Sri Lanka's widest waterfalls, cascading dramatically down the rocky hillside into the valley below.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Hiking Nature" data-images="Images/Little Adam's Peak/1.jpg,Images/Little Adam's Peak/2.webp,Images/Little Adam's Peak/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Little Adam's Peak/1.jpg" alt="Little Adam's Peak Ella" loading="lazy">
+                <span class="card-badge">Hiking</span>
+              </div>
+              <div class="card-body">
+                <h4>Little Adam's Peak</h4>
+                <p>A gentle hike rewarded with sweeping panoramas over Ella valley, tea estates, and distant mountains.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="overnight-status">
+            <div class="overnight-icon"><i class="fa-regular fa-moon"></i></div>
+            <div class="overnight-info">Overnight stay in <strong>Ella</strong></div>
+          </div>
+        </section>
+        
+        <!-- DAY 2 -->
+        <section class="day-card" id="day2" data-day="2">
+          <div class="day-card-header">
+            <div class="day-number-badge">
+              <span class="num">02</span>
+              <span class="lbl">DAY</span>
+            </div>
+            <div class="day-header-meta">
+              <div class="day-date-tag"><i class="fa-regular fa-calendar-days"></i> Thursday, July 16, 2026</div>
+              <h2 class="day-route-title">Ella <i class="fa-solid fa-arrow-right-long"></i> Ginigathhena</h2>
+            </div>
+          </div>
+          
+          <p class="day-summary">After breakfast in Ella, journey through lush mountain country. Pass sparkling reservoirs and the famous Kithulgala rapids before arriving at your treetop stay.</p>
+          
+          <div class="stops-wrapper">
+            
+            <div class="attraction-card" data-tags="Nature" data-images="Images/Maskeliya Reservoir/1.jpg,Images/Maskeliya Reservoir/2.jpg,Images/Maskeliya Reservoir/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Maskeliya Reservoir/1.jpg" alt="Maskeliya Reservoir" loading="lazy">
+                <span class="card-badge">Scenic</span>
+              </div>
+              <div class="card-body">
+                <h4>Maskeliya Reservoir</h4>
+                <p>A vast highland reservoir surrounded by tea fields and cool misty hills — ideal for a roadside photo stop.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Waterfall Nature" data-images="Images/Aberdeen Falls/1.jpg,Images/Aberdeen Falls/2.webp,Images/Aberdeen Falls/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Aberdeen Falls/1.jpg" alt="Aberdeen Falls" loading="lazy">
+                <span class="card-badge">Waterfall</span>
+              </div>
+              <div class="card-body">
+                <h4>Aberdeen Falls</h4>
+                <p>A hidden gem waterfall in Ginigathhena, cascading into a deep pool surrounded by lush rainforest canopy.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Adventure Nature" data-images="Images/Kithulgala Kelani River/1.jpg,Images/Kithulgala Kelani River/2.jpg,Images/Kithulgala Kelani River/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Kithulgala Kelani River/1.jpg" alt="Kithulgala River" loading="lazy">
+                <span class="card-badge">Adventure</span>
+              </div>
+              <div class="card-body">
+                <h4>Kithulgala Kelani River</h4>
+                <p>Famous for the Bridge on the River Kwai film site and thrilling white-water rafting on the Kelani River.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Experience" data-images="Images/Ginigathhena Treehouse/1.jpg,Images/Ginigathhena Treehouse/2.jpg,Images/Ginigathhena Treehouse/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Ginigathhena Treehouse/1.jpg" alt="Ginigathhena treehouse" loading="lazy">
+                <span class="card-badge">Treehouse Stay</span>
+              </div>
+              <div class="card-body">
+                <h4>Ginigathhena Treehouse</h4>
+                <p>Wake up in the jungle canopy — your unique eco-lodge stay surrounded by dense rainforest and birdsong.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="overnight-status">
+            <div class="overnight-icon"><i class="fa-solid fa-tree"></i></div>
+            <div class="overnight-info">Overnight stay in <strong>Ginigathhena Treehouse</strong></div>
+          </div>
+        </section>
+        
+        <!-- DAY 3 -->
+        <section class="day-card" id="day3" data-day="3">
+          <div class="day-card-header">
+            <div class="day-number-badge">
+              <span class="num">03</span>
+              <span class="lbl">DAY</span>
+            </div>
+            <div class="day-header-meta">
+              <div class="day-date-tag"><i class="fa-regular fa-calendar-days"></i> Friday, July 17, 2026</div>
+              <h2 class="day-route-title">Ginigathhena <i class="fa-solid fa-arrow-right-long"></i> Nuwara Eliya</h2>
+            </div>
+          </div>
+          
+          <p class="day-summary">Explore "Little England" — Nuwara Eliya's colonial charm, rose gardens, emerald tea estates, and misty hilltops await you today.</p>
+          
+          <div class="stops-wrapper">
+            
+            <div class="attraction-card" data-tags="Nature" data-images="Images/Gregory Lake/1.jpg,Images/Gregory Lake/2.jpg,Images/Gregory Lake/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Gregory Lake/1.jpg" alt="Gregory Lake Nuwara Eliya" loading="lazy">
+                <span class="card-badge">Lake</span>
+              </div>
+              <div class="card-body">
+                <h4>Gregory Lake</h4>
+                <p>A tranquil colonial-era lake at the heart of the city — ideal for a leisurely morning stroll or boating.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Nature Heritage" data-images="Images/Victoria Park/1.jpg,Images/Victoria Park/2.jpg,Images/Victoria Park/3.webp">
+              <div class="card-img-wrapper">
+                <img src="Images/Victoria Park/1.jpg" alt="Victoria Park Nuwara Eliya" loading="lazy">
+                <span class="card-badge">Garden</span>
+              </div>
+              <div class="card-body">
+                <h4>Victoria Park</h4>
+                <p>A beautifully maintained botanical park bursting with roses, ferns, and seasonal highland blooms.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Heritage Experience" data-images="Images/Tea Factory Visit/1.jpg,Images/Tea Factory Visit/2.jpg,Images/Tea Factory Visit/3.png">
+              <div class="card-img-wrapper">
+                <img src="Images/Tea Factory Visit/1.jpg" alt="Ceylon Tea Factory" loading="lazy">
+                <span class="card-badge">Cultural</span>
+              </div>
+              <div class="card-body">
+                <h4>Tea Factory Visit</h4>
+                <p>See how Ceylon's finest tea is produced — from leaf plucking on misty slopes to the perfect cup.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Heritage" data-images="Images/Nuwara Eliya Post Office/1.jpg,Images/Nuwara Eliya Post Office/2.jpg,Images/Nuwara Eliya Post Office/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Nuwara Eliya Post Office/1.jpg" alt="Nuwara Eliya Post Office" loading="lazy">
+                <span class="card-badge">Heritage</span>
+              </div>
+              <div class="card-body">
+                <h4>Nuwara Eliya Post Office</h4>
+                <p>One of Sri Lanka's most photographed colonial buildings — an iconic red-brick Tudor-style landmark.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Hiking Nature" data-images="Images/Lone Tree Hill/1.webp,Images/Lone Tree Hill/2.jpg,Images/Lone Tree Hill/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Lone Tree Hill/1.webp" alt="Lone Tree Hill" loading="lazy">
+                <span class="card-badge">Hiking</span>
+              </div>
+              <div class="card-body">
+                <h4>Lone Tree Hill</h4>
+                <p>Hike to the famous solitary tree silhouetted against vast rolling tea estate vistas — a photographer's dream.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Experience" data-images="Images/Strawberry Farm/1.jpg,Images/Strawberry Farm/2.jpg,Images/Strawberry Farm/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Strawberry Farm/1.jpg" alt="Strawberry Farm Nuwara Eliya" loading="lazy">
+                <span class="card-badge">Experience</span>
+              </div>
+              <div class="card-body">
+                <h4>Strawberry Farm</h4>
+                <p>Pick fresh strawberries straight from the vines at a highland farm — a sweet and memorable experience.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="overnight-status">
+            <div class="overnight-icon"><i class="fa-solid fa-hotel"></i></div>
+            <div class="overnight-info">Overnight stay in <strong>Nuwara Eliya</strong></div>
+          </div>
+        </section>
+        
+        <!-- DAY 4 -->
+        <section class="day-card" id="day4" data-day="4">
+          <div class="day-card-header">
+            <div class="day-number-badge">
+              <span class="num">04</span>
+              <span class="lbl">DAY</span>
+            </div>
+            <div class="day-header-meta">
+              <div class="day-date-tag"><i class="fa-regular fa-calendar-days"></i> Saturday, July 18, 2026</div>
+              <h2 class="day-route-title">Nuwara Eliya <i class="fa-solid fa-arrow-right-long"></i> Habarana</h2>
+            </div>
+          </div>
+          
+          <p class="day-summary">Head north toward the Cultural Triangle. Visit the beloved elephant orphanage, ancient cave temples, and the storied city of Polonnaruwa.</p>
+          
+          <div class="stops-wrapper">
+            
+            <div class="attraction-card" data-tags="Wildlife" data-images="Images/Pinnawala Elephant Orphanage/1.jpg,Images/Pinnawala Elephant Orphanage/2.webp,Images/Pinnawala Elephant Orphanage/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Pinnawala Elephant Orphanage/1.jpg" alt="Pinnawala Elephant Orphanage" loading="lazy">
+                <span class="card-badge">Wildlife</span>
+              </div>
+              <div class="card-body">
+                <h4>Pinnawala Elephant Orphanage</h4>
+                <p>Watch rescued elephants bathe in the Maha Oya River — one of Sri Lanka's most beloved wildlife sanctuaries.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Heritage Nature" data-images="Images/Ambuluwawa Tower/1.webp,Images/Ambuluwawa Tower/2.jpg,Images/Ambuluwawa Tower/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Ambuluwawa Tower/1.webp" alt="Ambuluwawa Tower" loading="lazy">
+                <span class="card-badge">Viewpoint</span>
+              </div>
+              <div class="card-body">
+                <h4>Ambuluwawa Tower</h4>
+                <p>A unique spiral tower rising above the biodiversity complex — stunning 360° views over central Sri Lanka.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="UNESCO Heritage Heritage" data-images="Images/Dambulla Cave Temple/1.jpg,Images/Dambulla Cave Temple/2.jpeg,Images/Dambulla Cave Temple/3.webp">
+              <div class="card-img-wrapper">
+                <img src="Images/Dambulla Cave Temple/1.jpg" alt="Dambulla Cave Temple" loading="lazy">
+                <span class="card-badge">UNESCO Heritage</span>
+              </div>
+              <div class="card-body">
+                <h4>Dambulla Cave Temple</h4>
+                <p>A UNESCO World Heritage Site featuring five sacred cave shrines with ancient Buddhist murals and gilded statues.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="UNESCO Heritage Heritage" data-images="Images/Polonnaruwa Ruins/1.jpg,Images/Polonnaruwa Ruins/2.jpg,Images/Polonnaruwa Ruins/2.webp,Images/Polonnaruwa Ruins/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Polonnaruwa Ruins/1.jpg" alt="Polonnaruwa Ruins" loading="lazy">
+                <span class="card-badge">Ancient City</span>
+              </div>
+              <div class="card-body">
+                <h4>Polonnaruwa Ruins</h4>
+                <p>Walk among the ruins of Sri Lanka's medieval capital — giant Buddha statues, moats, and royal palaces.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="overnight-status">
+            <div class="overnight-icon"><i class="fa-solid fa-hotel"></i></div>
+            <div class="overnight-info">Overnight stay in <strong>Habarana</strong></div>
+          </div>
+        </section>
+        
+        <!-- DAY 5 -->
+        <section class="day-card" id="day5" data-day="5">
+          <div class="day-card-header">
+            <div class="day-number-badge">
+              <span class="num">05</span>
+              <span class="lbl">DAY</span>
+            </div>
+            <div class="day-header-meta">
+              <div class="day-date-tag"><i class="fa-regular fa-calendar-days"></i> Sunday, July 19, 2026</div>
+              <h2 class="day-route-title">Habarana Exploration Day</h2>
+            </div>
+          </div>
+          
+          <p class="day-summary">A full day in the Cultural Triangle — climb the iconic Sigiriya Lion Rock, take a wildlife safari, and explore by bicycle through ancient villages.</p>
+          
+          <div class="stops-wrapper">
+            
+            <div class="attraction-card" data-tags="Wildlife" data-images="Images/Minneriya National Park/1.jpg,Images/Minneriya National Park/2.avif,Images/Minneriya National Park/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Minneriya National Park/1.jpg" alt="Minneriya National Park elephants" loading="lazy">
+                <span class="card-badge">Safari</span>
+              </div>
+              <div class="card-body">
+                <h4>Minneriya National Park</h4>
+                <p>Home to the famous "Elephant Gathering" — hundreds of wild elephants congregate around the reservoir in July.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="UNESCO Heritage Heritage Hiking" data-images="Images/Sigiriya Rock Fortress/1.jpg,Images/Sigiriya Rock Fortress/2.jpg,Images/Sigiriya Rock Fortress/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Sigiriya Rock Fortress/1.jpg" alt="Sigiriya Rock Fortress" loading="lazy">
+                <span class="card-badge">UNESCO Heritage</span>
+              </div>
+              <div class="card-body">
+                <h4>Sigiriya Rock Fortress</h4>
+                <p>Climb 1,200 steps to the summit of this 5th-century rock citadel — ancient frescoes, mirror walls, and epic views.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Hiking Nature" data-images="Images/Pidurangala Rock/1.webp,Images/Pidurangala Rock/2.jpg,Images/Pidurangala Rock/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Pidurangala Rock/1.webp" alt="Pidurangala Rock" loading="lazy">
+                <span class="card-badge">Hiking</span>
+              </div>
+              <div class="card-body">
+                <h4>Pidurangala Rock</h4>
+                <p>Sigiriya's quieter neighbor — a scenic hike through jungle and boulders leads to a breathtaking panoramic view.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Experience" data-images="Images/Village Tour (Extended)/1.jpg,Images/Village Tour (Extended)/2.jpg,Images/Village Tour (Extended)/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Village Tour (Extended)/1.jpg" alt="Habarana village tour" loading="lazy">
+                <span class="card-badge">Village Life</span>
+              </div>
+              <div class="card-body">
+                <h4>Village Tour — Bicycle / Bull Cart</h4>
+                <p>Cycle through paddy fields or ride a traditional ox-cart through rural villages — an authentic local experience.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="overnight-status">
+            <div class="overnight-icon"><i class="fa-solid fa-hotel"></i></div>
+            <div class="overnight-info">Overnight stay in <strong>Habarana</strong></div>
+          </div>
+        </section>
+        
+        <!-- DAY 6 -->
+        <section class="day-card" id="day6" data-day="6">
+          <div class="day-card-header">
+            <div class="day-number-badge">
+              <span class="num">06</span>
+              <span class="lbl">DAY</span>
+            </div>
+            <div class="day-header-meta">
+              <div class="day-date-tag"><i class="fa-regular fa-calendar-days"></i> Monday, July 20, 2026</div>
+              <h2 class="day-route-title">Habarana — Leisure & Revisit</h2>
+            </div>
+          </div>
+          
+          <p class="day-summary">A second day to soak in everything Habarana has to offer — a lake safari at sunset, more ruins, or revisit your favourite spots at a leisurely pace.</p>
+          
+          <div class="stops-wrapper">
+            
+            <div class="attraction-card" data-tags="UNESCO Heritage Heritage" data-images="Images/Dambulla Cave Temple/1.jpg,Images/Dambulla Cave Temple/2.jpeg,Images/Dambulla Cave Temple/3.webp">
+              <div class="card-img-wrapper">
+                <img src="Images/Dambulla Cave Temple/1.jpg" alt="Dambulla Cave Temple" loading="lazy">
+                <span class="card-badge">UNESCO Heritage</span>
+              </div>
+              <div class="card-body">
+                <h4>Dambulla Cave Temple (Revisit)</h4>
+                <p>Return to explore deeper into the cave complex — early morning light illuminates the murals magnificently.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Wildlife Nature" data-images="Images/Habarana Lake Safari/1.jpg,Images/Habarana Lake Safari/2.jpg,Images/Habarana Lake Safari/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Habarana Lake Safari/1.jpg" alt="Habarana Lake Safari" loading="lazy">
+                <span class="card-badge">Safari</span>
+              </div>
+              <div class="card-body">
+                <h4>Habarana Lake Safari</h4>
+                <p>A peaceful canoe or boat trip at sunset — spot crocodiles, water birds, and elephants along the shore.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="UNESCO Heritage Heritage Hiking" data-images="Images/Sigiriya Rock Fortress/1.jpg,Images/Sigiriya Rock Fortress/2.jpg,Images/Sigiriya Rock Fortress/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Sigiriya Rock Fortress/1.jpg" alt="Sigiriya" loading="lazy">
+                <span class="card-badge">UNESCO Heritage</span>
+              </div>
+              <div class="card-body">
+                <h4>Sigiriya Rock Fortress</h4>
+                <p>If you missed it yesterday, today is your chance — or return for that perfect golden-hour photograph.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Experience" data-images="Images/Village Tour (Extended)/1.jpg,Images/Village Tour (Extended)/2.jpg,Images/Village Tour (Extended)/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Village Tour (Extended)/1.jpg" alt="Village tour bull cart" loading="lazy">
+                <span class="card-badge">Village Life</span>
+              </div>
+              <div class="card-body">
+                <h4>Village Tour (Extended)</h4>
+                <p>Spend the afternoon on a rural village cycle — visit local homes, try traditional food, and meet the community.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="overnight-status">
+            <div class="overnight-icon"><i class="fa-solid fa-hotel"></i></div>
+            <div class="overnight-info">Overnight stay in <strong>Habarana</strong></div>
+          </div>
+        </section>
+        
+        <!-- DAY 7 -->
+        <section class="day-card" id="day7" data-day="7">
+          <div class="day-card-header">
+            <div class="day-number-badge">
+              <span class="num">07</span>
+              <span class="lbl">DAY</span>
+            </div>
+            <div class="day-header-meta">
+              <div class="day-date-tag"><i class="fa-regular fa-calendar-days"></i> Tuesday, July 21, 2026</div>
+              <h2 class="day-route-title">Habarana <i class="fa-solid fa-arrow-right-long"></i> Negombo</h2>
+            </div>
+          </div>
+          
+          <p class="day-summary">Wind down your highland adventure and head to the breezy coast. Stop at the colourful Matale spice & batik gardens and end the day by the shores of Negombo.</p>
+          
+          <div class="stops-wrapper">
+            
+            <div class="attraction-card" data-tags="Shopping Experience" data-images="Images/Matale Spice & Batik Gardens/1.jpg,Images/Matale Spice & Batik Gardens/2.avif,Images/Matale Spice & Batik Gardens/3.jpg,Images/Matale Spice & Batik Gardens/4.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Matale Spice & Batik Gardens/1.jpg" alt="Matale Spice & Batik Gardens" loading="lazy">
+                <span class="card-badge">Shopping</span>
+              </div>
+              <div class="card-body">
+                <h4>Matale Spice & Batik Gardens</h4>
+                <p>Browse vibrant batik fabrics and organic spice gardens en route at this historic highland market town.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Heritage" data-images="Images/Aluvihare Rock Temple/1.jpg,Images/Aluvihare Rock Temple/2.jpg,Images/Aluvihare Rock Temple/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Aluvihare Rock Temple/1.jpg" alt="Aluvihare Rock Temple" loading="lazy">
+                <span class="card-badge">Heritage</span>
+              </div>
+              <div class="card-body">
+                <h4>Aluvihare Rock Temple</h4>
+                <p>A historic rock temple in Matale where Buddhist scriptures were first written down on palm leaves in the 1st century BC.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Coastal Nature" data-images="Images/Negombo Lagoon/1.jpg,Images/Negombo Lagoon/2.webp,Images/Negombo Lagoon/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Negombo Lagoon/1.jpg" alt="Negombo beach lagoon" loading="lazy">
+                <span class="card-badge">Coastal</span>
+              </div>
+              <div class="card-body">
+                <h4>Negombo Lagoon</h4>
+                <p>Watch traditional fishing catamaran boats drift across the calm lagoon as the sun sets over the Indian Ocean.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+            <div class="attraction-card" data-tags="Heritage" data-images="Images/Dutch Fort, Negombo/1.jpg,Images/Dutch Fort, Negombo/2.jpg,Images/Dutch Fort, Negombo/3.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Dutch Fort, Negombo/1.jpg" alt="Dutch Fort Negombo" loading="lazy">
+                <span class="card-badge">Colonial History</span>
+              </div>
+              <div class="card-body">
+                <h4>Dutch Fort, Negombo</h4>
+                <p>Explore the remains of this 17th-century Dutch colonial fort, a fascinating slice of maritime history.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="overnight-status">
+            <div class="overnight-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+            <div class="overnight-info">Overnight stay in <strong>Negombo</strong></div>
+          </div>
+        </section>
+        
+        <!-- DAY 8 -->
+        <section class="day-card" id="day8" data-day="8">
+          <div class="day-card-header">
+            <div class="day-number-badge">
+              <span class="num">08</span>
+              <span class="lbl">DAY</span>
+            </div>
+            <div class="day-header-meta">
+              <div class="day-date-tag"><i class="fa-regular fa-calendar-days"></i> Wednesday, July 22, 2026</div>
+              <h2 class="day-route-title">Negombo <i class="fa-solid fa-arrow-right-long"></i> Departure</h2>
+            </div>
+          </div>
+          
+          <p class="day-summary">Your final morning in Sri Lanka. Airport transfer at 6:00 AM. Carry home memories of misty peaks, ancient kingdoms, wild elephants, and warm Sri Lankan smiles.</p>
+          
+          <div class="stops-wrapper">
+            
+            <div class="attraction-card" data-tags="Experience" data-images="Images/Airport Transfer/1.jpg">
+              <div class="card-img-wrapper">
+                <img src="Images/Airport Transfer/1.jpg" alt="Sri Lanka departure" loading="lazy">
+                <span class="card-badge">Departure</span>
+              </div>
+              <div class="card-body">
+                <h4>Airport Transfer — 6:00 AM</h4>
+                <p>Colombo Bandaranaike International Airport (CMB) is just 15 minutes from Negombo — a smooth and easy farewell.</p>
+                <span class="card-action"><i class="fa-solid fa-images"></i> View Gallery</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="overnight-status" style="background: var(--accent-transparent); border-color: var(--accent);">
+            <div class="overnight-icon" style="color: var(--accent);"><i class="fa-solid fa-plane-departure"></i></div>
+            <div class="overnight-info" style="color: var(--accent-dark);">Safe travels — <strong>until next time!</strong></div>
+          </div>
+        </section>
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Lightbox Modal for Attraction Images (With Carousel Controls) -->
+  <div class="lightbox-modal" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox"><i class="fa-solid fa-xmark"></i></button>
+    
+    <!-- Carousel Navigation Arrows -->
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+    
+    <div class="lightbox-container">
+      <div class="lightbox-img-wrapper">
+        <img src="" id="lightbox-img" alt="Enlarged view">
+        <!-- Image Counter Badge -->
+        <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
+      </div>
+      <div class="lightbox-caption">
+        <h4 id="lightbox-title">Title</h4>
+        <span class="lightbox-tag" id="lightbox-tag">Tag</span>
+        <p id="lightbox-desc">Description goes here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
